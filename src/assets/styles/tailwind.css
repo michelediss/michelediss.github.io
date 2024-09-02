@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  max-width: 1800px;
+}
+
+.bullet-navigation .bullet {
+  background-color: #ccc;
+}
+
+.bullet-navigation .bullet.active {
+  background-color: #333;
+}
+
+.prev {
+  transform: rotate(315deg)
+}
+
+.next {
+  transform: rotate(135deg)
+}
+
+.arrow {
+  border-color: black;
+}
+
+.button {
+  border: solid black;
+}
+
+p, h1, h2, h3, h4, h5, .button,
+.text-color, 
+.text-menu-color {
+  transition: color 0.3s linear;
+}
+
+.border-color,
+.border-menu-color {
+  transition: border-color 0.3s linear;
+}
+
+.bg-menu-color,
+.bg-secondary-color,
+.bg-secondary-menu-color {
+  transition: background-color 0.3s linear;
+}
+
+.button {
+  background-color: transparent; 
+  transition: all 0.3s linear;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+*:focus-visible {
+  outline: none!important;
+}
+
+swiper-container::part(pagination) {
+  position: relative;
+  margin-top: 1rem;
+}
+
+swiper-container::part(bullet-active) {
+  background-color: black; /* Esempio di stile per il bullet attivo */
+}
+
+.ptr--ptr * {
+  display: none !important;
+}
+
+.ptr--ptr {
+  box-shadow: none!important;
+}
+
+br {
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+br {
+  display: none;
+}
+}

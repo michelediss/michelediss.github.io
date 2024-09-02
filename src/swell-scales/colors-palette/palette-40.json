@@ -1,0 +1,28 @@
+{
+    "index": 40,
+    "colors": {
+        "text-color": {
+            "text-1": "#fff",
+            "text-3a": "#fecec7",
+            "text-3b": "#a83d2e",
+            "heading-1": "#131313",
+            "link": "#8f8270",
+            "text-2": "#a9977d"
+        },
+        "background-color": {
+            "background-3": "#b74232",
+            "background-1": "#dfc7a4",
+            "background-2": "#f1dbbb",
+            "background-4": "#bda98c"
+        },
+        "button-color": {
+            "background-button": "#cbb698",
+            "background-button-hover": "#bda98c"
+        },
+        "gradient": {
+            "gradient": "linear-gradient(to right, rgba(183, 66, 50, 1) 0%, rgba(183, 66, 50, 1) 39%, rgba(183, 66, 50, 1) 75%, rgba(183, 66, 50, 1) 100%)",
+            "gradient-opacity": "linear-gradient(to right, rgba(183, 66, 50, 0.75) 0%, rgba(183, 66, 50, 0.8) 39%, rgba(183, 66, 50, 0.93) 75%, rgba(183, 66, 50, 0.95) 100%)"
+        }
+    }
+}}
+}
