@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   // Configura il publicPath per GitHub Pages
-  publicPath: process.env.NODE_ENV === "production" ? "/michelepaolino.github.io/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
 
   chainWebpack: (config) => {
     config.module
