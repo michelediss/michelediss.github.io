@@ -1,3 +1,10 @@
+@import './font/_Lato_+_Arvo.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

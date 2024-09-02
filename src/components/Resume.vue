@@ -4,7 +4,7 @@
   </div>
 
   <div class="intro-resume container mt-24 mb-16 mx-auto w-full lg:w-5/6 flex justify-center flex-wrap" ref="introResume">
-    <p class="text-color text-xl md:text-2xl font-paragraph text-center mb-12">
+    <p class="text-color text-xl md:text-2xl paragraph text-center mb-12">
       My name is Michele Paolino, I'm a web designer and front-end developer.
       My job involves designing and developing modern, lightweight, and high-performance web solutions.
       I apply to my works the knowledge I have gained from studying the processes that govern
@@ -15,7 +15,7 @@
 
   <div class="work-history" ref="workHistory">
     <div class="w-full lg:w-5/6 mx-auto">
-      <h2 class="text-color mt-20 mb-12 font-heading uppercase text-3xl">
+      <h2 class="text-color mt-20 mb-12 heading uppercase text-3xl">
         Work history
       </h2>
       <div class="bg-secondary-color h-0.5 w-full opacity-50"></div>
@@ -25,11 +25,11 @@
       <div v-for="(item, index) in items" :key="index">
         <div class="block md:flex py-4 my-4">
           <div class="w-full md:w-1/3 lg:w-1/4 pt-2">
-            <h2 class="text-color text-xl font-heading mb-2">{{ item.job }}</h2>
+            <h2 class="text-color text-xl heading mb-2">{{ item.job }}</h2>
           </div>
           <div class="w-full md:w-2/3 lg:w-3/4">
-            <h3 class="text-color text-lg mb-1 font-paragraph">{{ item.position }}</h3>
-            <p class="text-color text-base font-paragraph">
+            <h3 class="text-color text-lg mb-1 paragraph">{{ item.position }}</h3>
+            <p class="text-color text-base paragraph">
               {{ item.description }}
             </p>
           </div>
@@ -42,15 +42,15 @@
 
   <div class="tech-stack" ref="techStack">
     <div class="w-full lg:w-5/6 mx-auto">
-      <h2 class="text-color mt-20 mb-12 font-heading uppercase technical-skills text-xl">
+      <h2 class="text-color mt-20 mb-12 heading uppercase technical-skills text-xl">
         Tech stack
       </h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full lg:w-5/6 mx-auto gap-8 pb-32">
       <div v-for="(skill, index) in skills" :key="index">
-        <h3 class="text-color text-base font-heading mb-2">{{ skill.scope }}</h3>
-        <p class="text-color text-lg font-paragraph">{{ skill.skill }}</p>
+        <h3 class="text-color text-base heading mb-2 uppercase">{{ skill.scope }}</h3>
+        <p class="text-color text-lg paragraph">{{ skill.skill }}</p>
       </div>
     </div>
   </div>
@@ -125,8 +125,7 @@ export default {
     const tl = gsap.timeline();
 
     // Aggiunta delle animazioni alla timeline
-    tl.from(this.$refs.header.$el, { opacity: 0, duration: 0.8 })
-      .from(this.$refs.introResume, { opacity: 0, y: 50, duration: 0.8 }, "-=0.4")
+    tl.from(this.$refs.introResume, { opacity: 0, y: 50, duration: 0.8 }, "-=0.4")
       .from(this.$refs.workHistory, { opacity: 0, y: 50, duration: 0.8 }, "-=0.4")
       .from(this.$refs.techStack, { opacity: 0, y: 50, duration: 0.8 }, "-=0.4");
   }

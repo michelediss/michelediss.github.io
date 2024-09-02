@@ -9,14 +9,14 @@
         <div v-for="(project, index) in projects" :key="index" class="row-container">
           <div class="row flex flex-col flex-wrap lg:flex-row items-center py-8 md:space-x-2 lg:space-x-0 w-full">
             <div class="w-full lg:w-4/12">
-              <h1 class="text-2xl lg:text-2xl font-heading">{{ project.name }}</h1>
+              <h1 class="text-2xl lg:text-2xl heading">{{ project.name }}</h1>
             </div>
             <div class="w-full lg:w-8/12 flex">
               <div class="w-1/2 justify-self-start lg:justify-self-center text-start lg:text-center flex justify-start lg:justify-center items-end lg:items-center mt-3 md:mt-0">
-                <h5 class="uppercase text-base font-paragraph">{{ project.role }}</h5>
+                <h5 class="uppercase text-base paragraph">{{ project.role }}</h5>
               </div>
               <div class="w-1/2 text-end flex justify-end items-end">
-                <a :href="project.url" target="_blank" v-hover-animate rel="noopener noreferrer" class="button text-base font-paragraph border-2 border-color rounded-full px-8 py-1">
+                <a :href="project.url" target="_blank" v-hover-animate rel="noopener noreferrer" class="button text-base paragraph border-2 border-color rounded-full px-8 py-1">
                   Check it out!
                 </a>
               </div>
@@ -91,9 +91,6 @@ export default {
   mounted() {
     // Timeline GSAP per animazioni sequenziali
     const tl = gsap.timeline();
-
-    // Animazione del HeaderComponent
-    tl.from(this.$refs.header.$el, { opacity: 0, duration: 0.8 });
 
     // Animazioni delle righe in modo sequenziale
     this.$refs.mainContent.querySelectorAll('.row-container').forEach((row, index) => {

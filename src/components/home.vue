@@ -5,7 +5,7 @@
         <nav id="nav-back" class="flex mt-6 w-full lg:w-5/6 mx-auto justify-center">
           <div class="flex justify-center w-12/12">
             <div class="title-page-container">
-              <h2 ref="carouselTitle" class="text-color title-page-text text-xl font-heading">{{ currentItemData.title
+              <h2 ref="carouselTitle" class="text-color title-page-text text-xl heading">{{ currentItemData.title
                 }}</h2>
               <div ref="underline" class="bg-secondary-color title-page-underline h-0.5 bg-slate-900"></div>
             </div>
@@ -22,7 +22,7 @@
           <button ref="prevArrow" @click="prevItem"
             class="hidden border-color lg:block arrow prev border-t-2 border-l-2 h-4 w-4"></button>
           <h1 ref="carouselContent"
-            class="text-color font-paragraph w-full lg:w-4/6 carousel text-center md:px-5 flex justify-center flex-wrap text-xl md:text-3xl">
+            class="text-color paragraph w-full lg:w-4/6 carousel text-center md:px-5 flex justify-center flex-wrap text-xl md:text-3xl">
             <span v-html="currentItemData.text"></span>
           </h1>
           <button ref="nextArrow" @click="nextItem"
@@ -34,7 +34,7 @@
           <swiper-container slides-per-view="1" space-between="50" pagination="true">
             <swiper-slide v-for="(item, index) in items" :key="index">
               <div v-html="item.text"
-                class="swiper-content text-color font-paragraph w-full lg:w-4/6 text-center md:px-5 flex justify-center flex-wrap text-xl md:text-3xl">
+                class="swiper-content text-color paragraph w-full lg:w-4/6 text-center md:px-5 flex justify-center flex-wrap text-xl md:text-3xl">
               </div>
             </swiper-slide>
           </swiper-container>
@@ -42,10 +42,10 @@
 
         <div class="flex justify-center mt-8 md:mt-12">
           <router-link to="/portfolio"
-            class="text-color border-color bg-transparent button py-2 px-8 mr-4 font-heading text-lg border-2 rounded-full"
+            class="text-color border-color bg-transparent button py-2 px-8 mr-4 heading text-lg border-2 rounded-full"
             v-hover-animate>Portfolio</router-link>
           <router-link to="/resume"
-            class="text-color border-color button py-2 px-8 mr-4 font-heading text-lg border-2 rounded-full"
+            class="text-color border-color button py-2 px-8 mr-4 heading text-lg border-2 rounded-full"
             v-hover-animate>Resume</router-link>
         </div>
       </div>
@@ -59,7 +59,10 @@
 
 <script>
 import { gsap } from "gsap";
+import { CSSPlugin } from "gsap/CSSPlugin"; // Importa CSSPlugin per supportare le animazioni CSS standard
 import FooterComponent from "@/components/FooterComponent.vue";
+
+gsap.registerPlugin(CSSPlugin);
 
 export default {
   name: "Home",
@@ -166,7 +169,6 @@ export default {
 
       gsap.set([this.$refs.prevArrow, this.$refs.nextArrow], { display: 'block' });
       tl.to([this.$refs.prevArrow, this.$refs.nextArrow], { opacity: 1, duration: 0.5 }, "-=0.3");
-      tl.to(this.$refs.footer.$el, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
     }
 
     window.addEventListener('keydown', this.handleKeydown);

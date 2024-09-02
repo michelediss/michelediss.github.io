@@ -37,12 +37,37 @@ module.exports = {
   theme: {
     extend: {
       fontSize: customFontSizeScale,
+      fontFamily: fontFamily ? {
+        'paragraph': fontFamily.paragraph.fontfamily.replace(/['"]+/g, ''),
+        'paragraph-weight': fontFamily.paragraph.fontweight || 'normal',
+        'paragraph-lineheight': fontFamily.paragraph.lineheight,
+        'heading': fontFamily.heading.fontfamily.replace(/['"]+/g, ''),
+        'heading-weight': fontFamily.heading.fontweight || 'normal',
+        'heading-lineheight': fontFamily.heading.lineheight,
+        'heading-transform': fontFamily.heading.texttransform || 'none',
+      } : {},
     },
   },
   plugins: [
     require('@tailwindcss/forms'),
     function({ addBase }) {
       addBase(responsiveBaseFontSize);
+    },
+    function({ addUtilities, theme }) {
+      const newFontUtilities = {
+        '.font-paragraph': {
+          fontFamily: theme('fontFamily.paragraph'),
+          fontWeight: theme('fontFamily.paragraph-weight'),
+          lineHeight: theme('fontFamily.paragraph-lineheight'),
+        },
+        '.font-heading': {
+          fontFamily: theme('fontFamily.heading'),
+          fontWeight: theme('fontFamily.heading-weight'),
+          lineHeight: theme('fontFamily.heading-lineheight'),
+          textTransform: theme('fontFamily.heading-transform'),
+        },
+      };
+      addUtilities(newFontUtilities, ['responsive']);
     },
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio')

@@ -6,36 +6,17 @@
 </template>
 
 <script>
-import { getRandomHSLuvColor } from './utils/colorGenerator'; // Assicurati di importare la funzione corretta
-
 export default {
   data() {
-    return {
-      fontFamily: null,
-    };
+    return {};
   },
   methods: {
     onSwipeUp() {
-      console.log('Swipe up detected');
       // Aggiungi qui la logica che vuoi eseguire quando viene rilevato uno swipe up
     },
   },
-  async mounted() {
-    try {
-      const fontChoice = await import('./swell-scales/font-pairing/fontChoice.json');
-      const fontFamily = await import(`./swell-scales/font-pairing/pairing-list/${fontChoice.chosenPair}`);
-      this.fontFamily = fontFamily;
-
-      // Aggiungi il font al documento
-      const link = document.createElement('link');
-      link.href = fontFamily.fontUrl;
-      link.rel = 'stylesheet';
-      document.head.appendChild(link);
-
-      console.log('Font configuration loaded successfully.'); // Log per confermare il caricamento del font
-    } catch (error) {
-      console.error('Failed to load font configuration:', error);
-    }
+  mounted() {
+    // Codice eseguito al montaggio del componente, se necessario
   },
 };
 </script>

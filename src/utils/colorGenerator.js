@@ -135,17 +135,6 @@ export function getRandomHSLuvColor() {
   `;
   document.head.appendChild(styleElement);
 
-  // Aggiungi un console.log per verificare i colori e il CSS generato
-  console.log('Generated CSS classes and their colors:', {
-    primaryHexColor,
-    foregroundColor,
-    complementaryHexColor,
-    foregroundMenuColor,
-    blackForegroundHexColor
-  });
-
-  // Debug: verifica se la classe è stata applicata correttamente
-  console.log('Style element content:', styleElement.innerHTML);
 
   return primaryHexColor;
 }

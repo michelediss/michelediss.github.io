@@ -37,7 +37,6 @@ app.mount('#app');
 PullToRefresh.init({
   mainElement: 'body',
   onRefresh() {
-    console.log('Pull to refresh detected, reloading the page...');
     window.location.reload();
   },
   instructionsPullToRefresh: '',
