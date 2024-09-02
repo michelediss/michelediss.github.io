@@ -15,7 +15,10 @@ export default {
     };
   },
   methods: {
-
+    onSwipeUp() {
+      console.log('Swipe up detected');
+      // Aggiungi qui la logica che vuoi eseguire quando viene rilevato uno swipe up
+    },
   },
   async mounted() {
     try {

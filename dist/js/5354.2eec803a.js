@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunkpersonal_website_vue"]=self["webpackChunkpersonal_website_vue"]||[]).push([[5354],{5354:e=>{e.exports={chosenPair:"50"}}}]);
