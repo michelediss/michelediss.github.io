@@ -1,9 +1,12 @@
 <template>
-  <div class="flex-none">
+
+  <section class="container w-full lg:w-5/6 mx-auto px-4">
+
+    <div class="flex-none">
     <HeaderComponent :pageTitle="pageTitle" ref="header" />
   </div>
 
-  <div class="intro-resume container mt-24 mb-16 mx-auto w-full lg:w-5/6 flex justify-center flex-wrap" ref="introResume">
+  <div class="intro-resume container mt-24 mb-16 w-full flex justify-center flex-wrap" ref="introResume">
     <p class="text-color text-xl md:text-2xl paragraph text-center mb-12">
       My name is Michele Paolino, I'm a web designer and front-end developer.
       My job involves designing and developing modern, lightweight, and high-performance web solutions.
@@ -14,14 +17,14 @@
   </div>
 
   <div class="work-history" ref="workHistory">
-    <div class="w-full lg:w-5/6 mx-auto">
+    <div class="">
       <h2 class="text-color mt-20 mb-12 heading uppercase text-3xl">
         Work history
       </h2>
       <div class="bg-secondary-color h-0.5 w-full opacity-50"></div>
     </div>
 
-    <div class="container mx-auto w-full lg:w-5/6 mb-12 flex flex-wrap">
+    <div class="mb-12 flex flex-wrap">
       <div v-for="(item, index) in items" :key="index">
         <div class="block md:flex py-4 my-4">
           <div class="w-full md:w-1/3 lg:w-1/4 pt-2">
@@ -40,14 +43,14 @@
     </div>
   </div>
 
-  <div class="tech-stack" ref="techStack">
-    <div class="w-full lg:w-5/6 mx-auto">
+  <div class="mx-auto tech-stack w-full" ref="techStack">
+    <div class="">
       <h2 class="text-color mt-20 mb-12 heading uppercase technical-skills text-xl">
         Tech stack
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-full lg:w-5/6 mx-auto gap-8 pb-32">
+    <div class="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
       <div v-for="(skill, index) in skills" :key="index">
         <h3 class="text-color text-base heading mb-2 uppercase">{{ skill.scope }}</h3>
         <p class="text-color text-lg paragraph">{{ skill.skill }}</p>
@@ -55,19 +58,29 @@
     </div>
   </div>
 
-  <FooterComponent />
+  <div class="flex-none">
+      <SocialComponent svgClass="fill" />
+    </div>
+
+
+</section>
+<MenuComponent />
+
 </template>
 
 <script>
 import { gsap } from "gsap";
 import HeaderComponent from "@/components/HeaderComponent.vue";
-import FooterComponent from "@/components/FooterComponent.vue";
+import MenuComponent from "@/components/MenuComponent.vue";
+import SocialComponent from "@/components/SocialComponent.vue";
+
 
 export default {
   name: "Resume",
   components: {
     HeaderComponent,
-    FooterComponent,
+    MenuComponent,
+    SocialComponent
   },
   data() {
     return {
@@ -95,7 +108,7 @@ export default {
       skills: [
         {
           scope: "Front-end Development",
-          skill: "Vue.js, Bootstrap, Tailwind CSS, Sass, PHP, hsluv",
+          skill: "Vue.js, Bootstrap, Tailwind, Sass, PHP, hsluv",
         },
         {
           scope: "CMS",
@@ -107,7 +120,7 @@ export default {
         },
         {
           scope: "UI design",
-          skill: "User Interface design principles, typography, color theory",
+          skill: "UI design principles, typography, color theory",
         },
         {
           scope: "Animation & Effects",

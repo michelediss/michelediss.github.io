@@ -1,4 +1,4 @@
-@import './font/_Lato_+_Arvo.css';
+@import './font/_Catamaran_+_Lato.css';
 
 @tailwind base;
 @tailwind components;
@@ -38,9 +38,10 @@
 }
 
 p, h1, h2, h3, h4, h5, .button,
+.c-key,
 .text-color, 
 .text-menu-color {
-  transition: color 0.3s linear;
+  transition: color 0.3s linear!important;
 }
 
 .border-color,
@@ -57,6 +58,10 @@ p, h1, h2, h3, h4, h5, .button,
 .button {
   background-color: transparent; 
   transition: all 0.3s linear;
+}
+
+svg, .hamburger-icon {
+  transition: fill 0.3s linear;
 }
 
 .no-scroll {
@@ -83,6 +88,22 @@ swiper-container::part(bullet-active) {
 
 .ptr--ptr {
   box-shadow: none!important;
+}
+
+.c-key {
+  background-color: #eeeeee52;
+  border-radius: 3px;
+  border: 1px solid #b4b4b489;
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.2),
+    0 2px 0 0 rgba(255, 255, 255, 0.2) inset;
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+  font-family: monospace;
 }
 
 br {

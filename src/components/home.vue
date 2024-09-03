@@ -5,8 +5,8 @@
         <nav id="nav-back" class="flex mt-6 w-full lg:w-5/6 mx-auto justify-center">
           <div class="flex justify-center w-12/12">
             <div class="title-page-container">
-              <h2 ref="carouselTitle" class="text-color title-page-text text-xl heading">{{ currentItemData.title
-                }}</h2>
+              <h1 ref="carouselTitle" class="text-color title-page-text text-xl heading">{{ currentItemData.title
+                }}</h1>
               <div ref="underline" class="bg-secondary-color title-page-underline h-0.5 bg-slate-900"></div>
             </div>
           </div>
@@ -15,16 +15,16 @@
     </div>
 
     <div class="main home flex grow items-center w-full justify-center">
-      <div class="container pb-12">
+      <div class="container">
 
         <!-- GSAP Carousel per desktop -->
         <div class="hidden md:flex carousel justify-center items-center">
           <button ref="prevArrow" @click="prevItem"
             class="hidden border-color lg:block arrow prev border-t-2 border-l-2 h-4 w-4"></button>
-          <h1 ref="carouselContent"
+          <p ref="carouselContent"
             class="text-color paragraph w-full lg:w-4/6 carousel text-center md:px-5 flex justify-center flex-wrap text-xl md:text-3xl">
             <span v-html="currentItemData.text"></span>
-          </h1>
+          </p>
           <button ref="nextArrow" @click="nextItem"
             class="hidden border-color lg:block arrow next border-t-2 border-l-2 h-4 w-4"></button>
         </div>
@@ -40,7 +40,7 @@
           </swiper-container>
         </div>
 
-        <div class="flex justify-center mt-8 md:mt-12">
+        <div ref="buttonContainer" class="flex justify-center mt-8 md:mt-12">
           <router-link to="/portfolio"
             class="text-color border-color bg-transparent button py-2 px-8 mr-4 heading text-lg border-2 rounded-full"
             v-hover-animate>Portfolio</router-link>
@@ -51,23 +51,29 @@
       </div>
     </div>
 
-    <div class="flex-none">
-      <FooterComponent ref="footer" />
+    <div class="flex-none footer" ref="footerIcons">
+      <SocialComponent svgClass="fill" />
     </div>
   </div>
+
+  <MenuComponent />
+
 </template>
 
 <script>
 import { gsap } from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin"; // Importa CSSPlugin per supportare le animazioni CSS standard
-import FooterComponent from "@/components/FooterComponent.vue";
+import MenuComponent from "@/components/MenuComponent.vue";
+import SocialComponent from "@/components/SocialComponent.vue";
+
 
 gsap.registerPlugin(CSSPlugin);
 
 export default {
   name: "Home",
   components: {
-    FooterComponent,
+    MenuComponent,
+    SocialComponent
   },
   data() {
     return {
@@ -83,11 +89,11 @@ export default {
         },
         {
           title: "Nerd Pr!de",
-          text: `<p>I develop and maintain Nerd Pr!de, <br>a tool collection for web devs. <br>Take a look on my <span><a href="https://github.com/michelediss?tab=repositories" target="_blank"><strong>GitHub.</strong></a></span></p>`,
+          text: `<p>I'm author of Nomenklatura, <br>a design system for web devs. <br>Take a look on my <span><a class="underline underline-offset-8" href="https://github.com/michelediss?tab=repositories" target="_blank"><strong>GitHub.</strong></a></span></p>`,
         },
         {
           title: "Let's play!",
-          text: `<p>Press 'c' on your keyboard<br> or swipe up on mobile to change<br> the color palette of the site!</p>`,
+          text: `<p>Press <kbd class="c-key text-color">c</kbd> on your keyboard<br> or swipe up on mobile to change<br> the color palette of the site!</p>`,
         },
       ],
     };
@@ -145,10 +151,12 @@ export default {
         gsap.to(underline, {
           duration: 0.5,
           width: 0,
+          opacity: 0,
           onComplete: () => {
             gsap.to(underline, {
               duration: 0.5,
               width: '100%',
+              opacity: 1,
             });
           },
         });
@@ -156,32 +164,45 @@ export default {
     },
   },
   mounted() {
-    const tl = gsap.timeline();
+  const tl = gsap.timeline();
 
-    if (this.$refs.carouselTitle && this.$refs.underline && this.$refs.carouselContent && this.$refs.footer && this.$refs.prevArrow && this.$refs.nextArrow) {
-      tl.to(this.$refs.carouselTitle, { opacity: 1, y: 0, duration: 0.5 }, "+=0.5");
-      tl.to(this.$refs.underline, { opacity: 1, width: '100%', duration: 0.5 }, "-=0.3");
-      tl.to(this.$refs.carouselContent, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
+  // Assicurati che tutti i riferimenti siano disponibili
+  const carouselTitle = this.$refs.carouselTitle;
+  const underline = this.$refs.underline;
+  const carouselContent = this.$refs.carouselContent;
+  const prevArrow = this.$refs.prevArrow;
+  const nextArrow = this.$refs.nextArrow;
+  const buttonContainer = this.$refs.buttonContainer; // Riferimento per i pulsanti
+  const footerIcons = this.$refs.footerIcons; // Nuovo riferimento per footerIcons
 
-      tl.to(this.$refs.swiperContainer, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
+  if (carouselTitle && underline && carouselContent && prevArrow && nextArrow && buttonContainer && footerIcons) {
+    tl.to(carouselTitle, { opacity: 1, y: 0, duration: 0.5 }, "+=0.5");
+    tl.to(underline, { opacity: 1, width: '100%', duration: 0.5 }, "-=0.3");
+    tl.to(carouselContent, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
+    tl.to(this.$refs.swiperContainer, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
 
-      tl.to(this.$el.querySelectorAll('.button'), { opacity: 1, y: 0, stagger: 0.2, duration: 0.5 }, "-=0.3");
-
-      gsap.set([this.$refs.prevArrow, this.$refs.nextArrow], { display: 'block' });
-      tl.to([this.$refs.prevArrow, this.$refs.nextArrow], { opacity: 1, duration: 0.5 }, "-=0.3");
+    // Animazione per i pulsanti
+    const buttons = buttonContainer.querySelectorAll('.button');
+    if (buttons.length > 0) {
+      tl.to([...buttons], { opacity: 1, y: 0, stagger: 0.2, duration: 0.5 }, "-=0.3");
     }
 
-    window.addEventListener('keydown', this.handleKeydown);
-  },
-  beforeDestroy() {
-    window.removeEventListener('keydown', this.handleKeydown);
-  },
+    // Animazione per frecce del carosello
+    gsap.set([prevArrow, nextArrow], { display: 'block' });
+    tl.to([prevArrow, nextArrow], { opacity: 1, duration: 0.5 }, "-=0.3");
+
+    // Aggiunta animazione per il footerIcons
+    tl.to(footerIcons, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
+  }
+
+  window.addEventListener('keydown', this.handleKeydown);
+},
 };
 </script>
 
 <style scoped>
 .title-page-underline,
-h2,
+p,
 h1,
 .button,
 .footer,
@@ -202,4 +223,5 @@ strong {
 .bullet.active {
   background-color: #1a202c;
 }
+
 </style>

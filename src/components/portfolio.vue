@@ -1,10 +1,10 @@
 <template>
-  <div class="flex flex-col h-screen">
-    <div class="flex-none">
+  <section class="container w-full mx-auto px-4 min-h-screen flex flex-col space-between">
+    <div class="flex-none mb-16">
       <HeaderComponent :pageTitle="pageTitle" ref="header" />
     </div>
 
-    <div class="main portfolio flex grow items-center justify-center mx-auto w-full md:w-5/6 mt-16 pb-24" ref="mainContent">
+    <div class="main portfolio flex grow items-center justify-center mx-auto w-full md:w-5/6" ref="mainContent">
       <div class="container ">
         <div v-for="(project, index) in projects" :key="index" class="row-container">
           <div class="row flex flex-col flex-wrap lg:flex-row items-center py-8 md:space-x-2 lg:space-x-0 w-full">
@@ -26,23 +26,26 @@
         </div>
       </div>
     </div>
-
     <div class="flex-none">
-      <FooterComponent />
+      <SocialComponent svgClass="fill" />
     </div>
-  </div>
+  </section>
+  <MenuComponent />
+
 </template>
 
 <script>
 import { gsap } from "gsap";
 import HeaderComponent from "@/components/HeaderComponent.vue";
-import FooterComponent from "@/components/FooterComponent.vue";
+import MenuComponent from "@/components/MenuComponent.vue";
+import SocialComponent from "@/components/SocialComponent.vue";
 
 export default {
   name: "Portfolio",
   components: {
     HeaderComponent,
-    FooterComponent
+    MenuComponent,
+    SocialComponent
   },
   data() {
     return {

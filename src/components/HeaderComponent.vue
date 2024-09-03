@@ -28,8 +28,8 @@ export default {
       if (this.$refs.underline && this.$refs.title) {
         // Animazione GSAP per la linea sottolineata
         gsap.fromTo(this.$refs.underline, 
-          { width: '0%' }, // Stato iniziale
-          { width: '100%', duration: 1, ease: 'power2.out' } // Stato finale
+          { opacity: 0, width: '0%' }, // Stato iniziale
+          { opacity: 1, width: '100%', duration: 1, ease: 'power2.out' } // Stato finale
         );
         gsap.fromTo(this.$refs.title, 
           { opacity: 0 }, // Stato iniziale (numero)

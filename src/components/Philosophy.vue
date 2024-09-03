@@ -4,9 +4,9 @@
       <HeaderComponent :pageTitle="pageTitle" ref="header" />
     </div>
 
-    <div class="philosophy w-full lg:w-4/6 mx-auto pt-8 pb-16" ref="philosophyContent">
+    <div class="philosophy w-full lg:w-4/6 mx-auto pt-8" ref="philosophyContent">
       <div class="philosophy-title">
-      <h1 class="mt-20 mb-12 heading text-4xl leading-15">
+      <h1 class="mt-20 mb-12 heading text-4xl leading-tight">
         Suspension of disbelief in digital design: a narrative approach to Ui/Ux
       </h1>
     </div>
@@ -59,8 +59,8 @@
       </p>
     </div>
 
-      <div class="philosophy-paragraph">
-      <p class="text-xl md:text-2xl paragraph text-start pb-24">
+      <div class="philosophy-paragraph pb-8">
+      <p class="text-xl md:text-2xl paragraph text-start">
         In conclusion, the application of the suspension of disbelief in UI/UX design and development is integral to
         creating digital experiences that are engaging and memorable. By leveraging the principles of visual design,
         animation, storytelling, and consistency, designers can craft immersive digital environments that encourage
@@ -72,22 +72,28 @@
     </div>
 
     </div>
+    
     <div class="flex-none">
-      <FooterComponent />
+      <SocialComponent/>
     </div>
   </div>
+  <MenuComponent />
+
 </template>
 
 <script>
 import { gsap } from "gsap";
 import HeaderComponent from "@/components/HeaderComponent.vue";
-import FooterComponent from "@/components/FooterComponent.vue";
+import MenuComponent from "@/components/MenuComponent.vue";
+import SocialComponent from "@/components/SocialComponent.vue";
+
 
 export default {
   name: "Philosophy",
   components: {
     HeaderComponent,
-    FooterComponent
+    MenuComponent,
+    SocialComponent
   },
   data() {
     return {
