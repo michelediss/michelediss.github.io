@@ -3,7 +3,7 @@
     <nav id="nav-back" class="flex pt-6 w-full lg:w-5/6 mx-auto">
       <div class="flex justify-center w-full">
         <div class="title-page-container">
-          <h2 ref="title" class="title-page-text text-color transition-all duration-500 text-xl heading">{{ pageTitle }}</h2>
+          <h1 ref="title" class="title-page-text text-color transition-all duration-500 text-xl heading">{{ pageTitle }}</h1>
           <div ref="underline" class="title-page-underline bg-secondary-color h-0.5 bg-slate-900"></div>
         </div>
       </div>

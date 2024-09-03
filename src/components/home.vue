@@ -88,7 +88,7 @@ export default {
           text: "Vue, WordPress, Bootstrap, Tailwind, <br>Figma, Adobe, UI design, Typography, <br> GSAP, Sass, Git, SEO.",
         },
         {
-          title: "Nerd Pr!de",
+          title: "Nomenklatura",
           text: `<p>I'm author of Nomenklatura, <br>a design system for web devs. <br>Take a look on my <span><a class="underline underline-offset-8" href="https://github.com/michelediss?tab=repositories" target="_blank"><strong>GitHub.</strong></a></span></p>`,
         },
         {
