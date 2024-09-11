@@ -1,5 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><link rel="shortcut icon" type="image/png" href="/images/favicon.png"/><title>Michele Paolino</title><meta name="description" content="This is me, Michele Paolino, a web designer and front-end developer based in Naples. Explore skills in Vue.js, WordPress, UI design, GSAP, and more."><meta name="keywords" content="Michele Paolino, web designer Naples, front-end developer, Vue.js, WordPress, UI design, GSAP, Swell Scales"><meta property="og:title" content="Michele Paolino, web designer and front-end developer | Napoli"><meta property="og:description" content="Discover the skills of Michele Paolino, a web designer and front-end developer specialized in Vue.js, Tailwind CSS, UI design, and much more."><meta property="og:type" content="website"><meta property="og:url" content="https://michelepaolino.me"><meta property="og:image" content="/images/og-image.jpg"><meta property="twitter:card" content="summary_large_image"><meta property="twitter:title" content="Michele Paolino, web designer and front-end developer | Napoli"><meta property="twitter:description" content="This is me, Michele Paolino, a web designer and front-end developer based in Naples. Explore skills in Vue.js, WordPress, UI design, GSAP, and more."><meta property="twitter:image" content="/images/og-image.jpg"><style>body {
             transition: background-color 0.4s ease-in-out; 
+            animation: fadeIn 1.5s ease-in-out forwards; /* Assegna correttamente l'animazione */
+            opacity: 0;
         }
 
         @keyframes fadeIn {
@@ -9,7 +11,12 @@
             to {
                 opacity: 1;
             }
-        }</style><script defer="defer" src="/js/chunk-vendors.475264d0.js"></script><script defer="defer" src="/js/app.11a0867e.js"></script><link href="/css/app.5876790e.css" rel="stylesheet"></head><body class="opacity"><div id="app"></div></body><script>// Genera dinamicamente una classe `style-n` e aggiungila al body
+        }
+
+        /* #carouselTitle, #underline {
+            opacity: 0;
+            visibility: hidden;
+        } */</style><script defer="defer" src="/js/chunk-vendors.475264d0.js"></script><script defer="defer" src="/js/app.5761ee9c.js"></script><link href="/css/app.bee38c9c.css" rel="stylesheet"></head><body class="opacity"><div id="app"></div></body><script>// Genera dinamicamente una classe `style-n` e aggiungila al body
     function assignRandomStyle() {
       const randomNum = Math.floor(Math.random() * 12) + 1;
       document.body.classList.add(`style-${randomNum}`);
